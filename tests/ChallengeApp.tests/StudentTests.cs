@@ -4,7 +4,7 @@ using ChallengeApp;
 
 namespace ChallengeApp.tests
 {
-	public class EmployeeTests
+	public class StudentTests
 	{
 		[Fact]
 		public void Test1()

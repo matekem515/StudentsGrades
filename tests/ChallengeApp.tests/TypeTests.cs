@@ -35,8 +35,8 @@ namespace Ksiegarnia.tests
 		[Fact]
 		public void GetStudentReturnsDifferentsObjects()
 		{
-			var emp1 = GetEmployee("Krzysztof","Fakt");
-			var emp2 = GetEmployee("Daniel","Koniec");
+			var emp1 = GetStudent("Krzysztof","Fakt");
+			var emp2 = GetStudent("Daniel","Koniec");
 			var emp3 = emp1;
 
 			Assert.NotSame(emp1, emp2);
@@ -45,9 +45,9 @@ namespace Ksiegarnia.tests
 		}
 
 		[Fact]
-		public void GetEmployeeReturnsSameobjects()
+		public void GetStudentReturnsSameobjects()
 		{
-			var emp1 = GetEmployee("Robert","Chrust");
+			var emp1 = GetStudent("Robert","Chrust");
 			var emp2 = emp1;
 			Assert.Same(emp1, emp2);
 			Assert.Equal(emp1, emp2);
@@ -57,7 +57,7 @@ namespace Ksiegarnia.tests
 		[Fact]
 		public void CScharCanPassByReference()
 		{
-			var emp1 = GetEmployee("Monika","Wkret");
+			var emp1 = GetStudent("Monika","Wkret");
 			GetStudentSetname(out emp1, "Monika", "Wkret");
 			Assert.Equal("Monika", emp1.Name);
 			Assert.Equal("Wkret", emp1.Surname);
@@ -71,13 +71,13 @@ namespace Ksiegarnia.tests
 		[Fact]
 		public void CanSetNameFromReference()
 		{
-			var emp1 = GetEmployee("Dawid", "Pajak");
+			var emp1 = GetStudent("Dawid", "Pajak");
 			this.SetName(emp1, "Dawid","Pajak");
 			Assert.Equal("Dawid", emp1.Name);
 			Assert.Equal("Pajak", emp1.Surname);
 		}
 		
-		private InMemoryStudent GetEmployee(string name,string surname)
+		private InMemoryStudent GetStudent(string name,string surname)
 		{
 			return new InMemoryStudent(name,surname);
 		}
