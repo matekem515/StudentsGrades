@@ -4,4 +4,4 @@ Below is the description of the menu how the user can navigate in the program:
 
 1: If you want to add grades to txt and show the statistics
 2: If you want to add grades to memory and show the statistics
-3: End the program
+3: End the program 
