@@ -25,6 +25,7 @@ namespace ChallengeApp
 				return Sum / Count;
 			}
 		}
+
 		public void Add(double number)
 		{
 			Sum += number;
