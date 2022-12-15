@@ -83,7 +83,7 @@ namespace ChallengeApp
 			Console.WriteLine($"Oh no! Student receive grade under 3. We should inform student’s parents about this fact");
 		}
 
-        private static void EnterGrade(StudentBase student)
+        private static void EnterGrade(IStudent student)
 		{
 			while (true)
 			{

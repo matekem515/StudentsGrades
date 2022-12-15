@@ -10,15 +10,10 @@ namespace ChallengeApp
     {
         public virtual string Name { get; set; }
         public virtual string Surname { get; set; }
-        public virtual double Grade { get; set; }
         public Person(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         }
-		public Person(double grade)
-		{
-            this.Grade = grade;
-		}
     }
 }

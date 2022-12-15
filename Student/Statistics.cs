@@ -5,26 +5,32 @@ namespace ChallengeApp
 {
 	public class Statistics
 	{
-		public double High;
+		public double Max;
 		public double Low;
-		public double Avarage;
+		public double Sum;
+		public int Count;
 
-		public Statistics GetStatistics(List<double> grades)
+		public Statistics()
 		{
-			var result = new Statistics();
-
-			High = double.MinValue;
+			Count = 0;
+			Sum = 0.0;
+			Max = double.MinValue;
 			Low = double.MaxValue;
-			Avarage = 0.0;
+		}
 
-			foreach (var grade in grades)
+		public double Avarage
+		{
+			get
 			{
-				Low = Math.Min(Low, grade);
-				High = Math.Max(High, grade);
-				Avarage += grade;
+				return Sum / Count;
 			}
-			Avarage /= grades.Count;
-			return result;
+		}
+		public void Add(double number)
+		{
+			Sum += number;
+			Count++;
+			Low = Math.Min(number, Low);
+			Max = Math.Max(number, Max);
 		}
 	}
 }

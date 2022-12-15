@@ -5,19 +5,11 @@ namespace ChallengeApp
 {
 	public class InMemoryStudent: StudentBase
 	{
-		public override string Name { get; set; }
-		public override string Surname  { get; set; }
-
 		private List<double> grades;
 
 		public InMemoryStudent(string name,string surname) : base(name,surname)	
 		{
 			grades = new List<double>();
-		}
-
-		public InMemoryStudent(double grade) : base(grade)
-		{
-			
 		}
 
 		public override void AddGrade(double grade)
@@ -32,7 +24,10 @@ namespace ChallengeApp
 		public override Statistics GetStatistics()
 		{
 			var result = new Statistics();
-			result.GetStatistics(grades);
+			foreach (var grade in grades)
+			{
+				result.Add(grade);
+			}
 			return result;
 		}
 
@@ -58,7 +53,7 @@ namespace ChallengeApp
 		public override void AddGrade(string grade)
 		{
 			{
-				if ((grade.Contains("+")))
+				if (grade.Contains("+") && (char.IsDigit(grade[0]) || char.IsDigit(grade[1])) && grade[0] <= '5' && grade[1] <= '5' && grade.Length == 2)
 				{
 					switch (grade)
 					{
@@ -93,7 +88,7 @@ namespace ChallengeApp
 							}
 					}
 				}
-				else
+				else if(grade.Length == 1)
 				{
 					var tryToParse = double.TryParse(grade, out double result);
 					if (tryToParse && result > 0 && result < 7)
@@ -104,6 +99,10 @@ namespace ChallengeApp
 					{
 						throw new ArgumentException($"Wrong value added you can only add values from 1 - 6");
 					}
+				}
+				else
+				{
+					throw new ArgumentException($"Wrong value added you can only add values from 1 - 6");
 				}
 			}
 		}

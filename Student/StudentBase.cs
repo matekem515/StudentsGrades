@@ -9,17 +9,11 @@ namespace ChallengeApp
 	public delegate void OnGradeAddedLowDelegate(object sender, EventArgs args);
 	public abstract class StudentBase : Person, IStudent
 	{
-		public override string Name { get; set; }
-		public override string Surname { get; set; }
-
 		public  StudentBase(string name, string surname) : base(name, surname)
 		{
 
 		}
-		public StudentBase(double grade) : base(grade)
-		{
 
-		}
 		public event OnGradeAddedLowDelegate LowGradeAdded;
 
 		public abstract void AddGrade(double grade);
@@ -40,7 +34,7 @@ namespace ChallengeApp
 		{
 				Console.WriteLine($"Avarage price:  {GetStatistics().Avarage}");
 				Console.WriteLine($"Minimal price:  {GetStatistics().Low}");
-				Console.WriteLine($"Maximal price: {GetStatistics().High}");
+				Console.WriteLine($"Maximal price: {GetStatistics().Max}");
 		}
 	}
 }
